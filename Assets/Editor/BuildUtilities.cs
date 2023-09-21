@@ -29,7 +29,6 @@ namespace Editor
             {
                 var buildTarget = EditorUserBuildSettings.activeBuildTarget;
                 var tmpBuildFolder = PathCombine(Path.GetDirectoryName(Application.dataPath), $"/Library/ContentUpdateBuildDir/{PlayerSettings.productName}");
-
                 var instance = DotsGlobalSettings.Instance;
                 var playerGuid = instance.GetPlayerType() == DotsGlobalSettings.PlayerType.Client ? instance.GetClientGUID() : instance.GetServerGUID();
                 if (!playerGuid.IsValid)
