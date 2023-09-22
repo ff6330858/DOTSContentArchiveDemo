@@ -21,7 +21,7 @@ namespace Systems
             });
             
         }
-        public void MarkReLoadScene()
+        public void MarkReloadScene()
         {
             var loadScenesData = SystemAPI.GetSingletonBuffer<AdditiveSceneComponentData>();
             for (int i = 0; i < loadScenesData.Length; i++)

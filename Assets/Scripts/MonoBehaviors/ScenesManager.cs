@@ -1,53 +1,56 @@
-using System;
-using Components;
 using Systems;
-using Unity.Burst;
-using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScenesManager : MonoBehaviour
+namespace MonoBehaviors
 {
-    private ScenesManagementSystem scenesManagementSystem;
-    private void Start()
+    public class ScenesManager : MonoBehaviour
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.sceneUnloaded += OnSceneUnloaded;
-        scenesManagementSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged(typeof(ScenesManagementSystem)) as ScenesManagementSystem;
-    }
+        private ScenesManagementSystem scenesManagementSystem;
 
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneUnloaded -= OnSceneUnloaded;
-    }
+        private void Start()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
+            scenesManagementSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystemManaged(typeof(ScenesManagementSystem)) as
+                    ScenesManagementSystem;
+        }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log(scene.name + " Loaded");
-    }
-    void OnSceneUnloaded(Scene scene)
-    {
-        Debug.Log(scene.name + " UnLoaded");
-    }
+        private void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            SceneManager.sceneUnloaded -= OnSceneUnloaded;
+        }
 
-    public void MarkReLoadScene()
-    {
-        scenesManagementSystem.MarkReLoadScene();
-    }
-    public void MarkUnloadScene(string sceneName)
-    {
-        scenesManagementSystem.MarkUnloadScene(sceneName);
-    }
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            Debug.Log(scene.name + " Loaded");
+        }
 
-    public void MarkSwitchScene()
-    {
-        scenesManagementSystem.SwitchScene();
-    }
+        void OnSceneUnloaded(Scene scene)
+        {
+            Debug.Log(scene.name + " UnLoaded");
+        }
 
-    public void UnloadScene(string sceneName)
-    {
-        SceneManager.UnloadSceneAsync(sceneName);
+        public void MarkReLoadScene()
+        {
+            scenesManagementSystem.MarkReloadScene();
+        }
+
+        public void MarkUnloadScene(string sceneName)
+        {
+            scenesManagementSystem.MarkUnloadScene(sceneName);
+        }
+
+        public void MarkSwitchScene()
+        {
+            scenesManagementSystem.SwitchScene();
+        }
+
+        public void UnloadScene(string sceneName)
+        {
+            SceneManager.UnloadSceneAsync(sceneName);
+        }
     }
 }

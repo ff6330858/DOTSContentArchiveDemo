@@ -101,7 +101,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 1
+  fullscreenMode: 3
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -802,7 +802,8 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: ENABLE_CONTENT_DELIVERY
+    Android: ENABLE_CONTENT_DELIVERY
+    Standalone: ENABLE_CONTENT_DELIVERY;ENABLE_CONTENT_DIAGNOSTICS;ENABLE_PROFILER
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

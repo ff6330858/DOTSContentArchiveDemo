@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/GameStarter.unity
+    guid: 2ff0e24d02bec4ffca21e7bb1999bdcf
+  - enabled: 1
     path: Assets/Scenes/WeaklyRefScene/WeaklyRefScene.unity
     guid: ceb19d250563745caa2f3ee2b24df798
   - enabled: 1
